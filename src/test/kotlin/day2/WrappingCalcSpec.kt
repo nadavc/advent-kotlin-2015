@@ -15,12 +15,9 @@ class WrappingCalcSpec : StringSpec() {
             calc.ribbonLength("1x1x10") shouldBe 14
         }
 
-
-
         "solve advent of code day 2" {
             val listOfMeasurements = loadResource("day2/input.txt").lines()
             listOfMeasurements.sumBy { calc.wrappingPaperArea(it) } shouldBe 1606483
-
         }
 
     }
