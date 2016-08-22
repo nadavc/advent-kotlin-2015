@@ -1,17 +1,7 @@
 package day6;
 
 class BrightnessLightStrategy : LightStrategy {
-    override fun turnOn(grid: Array<Array<Int>>, x: Int, y: Int) {
-        grid[x][y]++
-    }
-
-    override fun turnOff(grid: Array<Array<Int>>, x: Int, y: Int) {
-        if (grid[x][y] > 0) {
-            grid[x][y]--
-        }
-    }
-
-    override fun toggle(grid: Array<Array<Int>>, x: Int, y: Int) {
-        grid[x][y] += 2
-    }
+    override fun turnOn(currValue: Int) = currValue + 1
+    override fun turnOff(currValue: Int) = Math.max(0, currValue - 1)
+    override fun toggle(currValue: Int) = currValue + 2
 }

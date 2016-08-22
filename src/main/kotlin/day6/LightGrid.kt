@@ -1,9 +1,9 @@
 package day6
 
 interface LightStrategy {
-    fun turnOn(grid: Array<Array<Int>>, x: Int, y: Int)
-    fun turnOff(grid: Array<Array<Int>>, x: Int, y: Int)
-    fun toggle(grid: Array<Array<Int>>, x: Int, y: Int)
+    fun turnOn(currValue: Int): Int
+    fun turnOff(currValue: Int): Int
+    fun toggle(currValue: Int): Int
 }
 
 class LightGrid(val size: Int) {
@@ -19,9 +19,9 @@ class LightGrid(val size: Int) {
         for (x in x1..x2) {
             for (y in y1..y2) {
                 when (action) {
-                    "turn on" -> strategy.turnOn(grid, x, y)
-                    "turn off" -> strategy.turnOff(grid, x, y)
-                    "toggle" -> strategy.toggle(grid, x, y)
+                    "turn on" -> grid[x][y] = strategy.turnOn(grid[x][y])
+                    "turn off" -> grid[x][y] = strategy.turnOff(grid[x][y])
+                    "toggle" -> grid[x][y] = strategy.toggle(grid[x][y])
                 }
             }
         }
